@@ -19,136 +19,191 @@ $pink: #C01251;
 
 article {
     background: $black;
+}
+.search-case {
+    @include flex-center();
+    flex-direction: column;
+    height: 70vh;
+    input {
+        padding: 20px;
+        width: 50%;
+        outline: none;
+        font-size: 20px;
+        text-align: center;
+    }
+    input:focus::placeholder {
+        color: transparent;
+    }
+    #results {
+        list-style: none;
+        background: #fff;
+        width: 49.9%;
+        padding: 10px;
+        border-radius: 2px;
+        max-height: 200px;
+        overflow-y: scroll;
+        opacity: 0;
+        box-shadow: 2px 5px 5px 2px rgba(3, 3, 3, 0.2);
+    }
+    .row {
+        width: 100%;
+        background-color: black;
+    }
+    .listseparate {
+        padding-bottom: 10px;
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 750px) {
     .search-case {
-        @include flex-center();
-        flex-direction: column;
-        height: 70vh;
         input {
-            padding: 20px;
-            width: 50%;
+            width: 80%;
+        }
+        #results {
+            opacity: 1;
+            width: 79.9%;
+            height: 150px;
+        }
+    }
+}
+.add-case {
+    @include flex-center();
+    flex-direction: column;
+    height: 70vh;
+    background-color: #f0f0f0;
+    padding-top: 50px;
+    .title {
+        font-size: 30px;
+        text-align: center;
+    }
+    .case-info {
+        @include flex-center();
+        width: 90%;
+        input {
+            padding: 10px;
+            width: 30%;
             outline: none;
             font-size: 20px;
             text-align: center;
+            margin: 50px 10px 50px 0;
+            border: none;
+            background: #fff;
+            opacity: 1;
+            color: $black;
+            margin-bottom: 25px;
+        }
+        input::placeholder {
+            color: $black;
+            opacity: .6;
         }
         input:focus::placeholder {
             color: transparent;
         }
-        #results {
-            list-style: none;
-            background: #f0f0f0;
-            width: 45%;
-            padding: 10px;
-            border-radius: 2px;
-            max-height: 150px;
-            overflow-y: scroll;
-        }
-        .row {
-            width: 100%;
-            background-color: black;
-        }
-        .listseparate {
-            padding-bottom: 5px;
-        }
     }
+    #validate-message {
+        padding-top: 0;
+        margin-top: 0;
+        margin-bottom: 30px;
+        color: red;
+        opacity: 0;
+    }
+    #add-case {
+        cursor: pointer;
+        background-color: $pink;
+        color: #fff;
+        font-size: 20px;
+        padding: 10px 30px;
+        border-radius: 20px;
+        transform: scale(1);
+    }
+    #add-case:hover {
+        transform: scale(1.05);
+        background-color: rgba(	192, 18, 81, .8);
+    }
+    #case-success {
+        margin: 50px 50px 25px 50px;
+        padding: 10px 20px;
+        background-color: rgba(146, 240, 93, 0.7);
+        opacity: 0;
+    }
+    span {
+        background: $black;
+        color: $black;
+        height: 1px;
+        width: 80%;
+    }
+}
+@media screen and (max-width: 750px) {
     .add-case {
-        @include flex-center();
-        flex-direction: column;
-        height: 70vh;
-        background-color: #f0f0f0;
-        padding-top: 50px;
         .title {
-            font-size: 30px;
-            text-align: center;
+            margin-bottom: 30px;
         }
         .case-info {
-            @include flex-center();
-            width: 90%;
+            flex-direction: column;
             input {
-                padding: 10px;
-                width: 30%;
-                outline: none;
-                font-size: 20px;
-                text-align: center;
-                margin: 50px 10px 50px 0;
-                border: 1px solid $black;
-                background: $black;
-                opacity: .8;
-                color: #fff;
-                margin-bottom: 25px;
-            }
-            input::placeholder {
-                color: #f0f0f0;
-                opacity: .6;
-            }
-            input:focus::placeholder {
-                color: transparent;
+                width: 80%;
+                margin: 10px;
             }
         }
         #validate-message {
-            padding-top: 0;
-            margin-top: 0;
-            margin-bottom: 30px;
-            color: red;
-            transform: opacity 0.3s ease in;
-            opacity: 0;
-        }
-        #add-case {
-            cursor: pointer;
-            background-color: $pink;
-            color: #fff;
-            font-size: 20px;
-            padding: 10px 30px;
-            border-radius: 20px;
-            transform: scale(1);
-        }
-        #add-case:hover {
-            transform: scale(1.05);
-            background-color: rgba(	192, 18, 81, .8);
-        }
-        #case-success {
-            margin: 50px 50px 25px 50px;
-            padding: 10px 20px;
-            background-color: rgba(146, 240, 93, 0.7);
-            opacity: 0;
+            padding-top: 10px;
         }
     }
-    .recently-added {
-        height: 100%;
+}
+.recently-added {
+    height: 100%;
+    @include flex-center();
+    flex-direction: column;
+    padding-bottom: 50px;
+    background-color: #f0f0f0;
+    .title {
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 50px;
+        margin-top: 50px;
+    }
+    .case-contain {
+        width: 80%;
+        font-size: 24px;
         @include flex-center();
         flex-direction: column;
-        .title {
-            color: #f0f0f0;
-            font-size: 30px;
-            text-align: center;
-            margin-bottom: 50px;
-            margin-top: 50px;
-        }
-        .case-contain {
-            width: 80%;
-            font-size: 24px;
+        padding: 10px;
+        .row {
             @include flex-center();
-            flex-direction: column;
-            padding: 10px;
+            flex-direction: row;
+            width: 100%;
+            padding: 15px;
+            .case-contain-name {
+                flex: 2;
+            }
+            .case-contain-citation {
+                flex: 1.5;
+            }
+        }
+    }
+    .row:nth-child(even) {
+        background-color: #fff;
+    }
+    .row:nth-child(odd) {
+        background-color: rgba(	67, 80, 88, .3);
+        color: #fff;
+    }
+}
+@media screen and (max-width: 750px) {
+    .recently-added {
+        .case-contain {
+            width: 100%;
             .row {
-                @include flex-center();
-                flex-direction: row;
-                width: 100%;
+                width: 90%;
                 padding: 10px;
-                margin-bottom: 10px;
+                font-size: 20px;
                 .case-contain-name {
                     flex: 2;
                 }
                 .case-contain-citation {
-                    flex: 1;
+                    flex: 1.5;
                 }
             }
-        }
-        .row:nth-child(even) {
-            background-color: #f0f0f0;
-        }
-        .row:nth-child(odd) {
-            background-color: rgba(	192, 18, 81,.4);
-            color: #f0f0f0;
         }
     }
 }

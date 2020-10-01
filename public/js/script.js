@@ -113,17 +113,7 @@ function showCases(matchedCases) {
 function displayMatchedCases() {
     // displaying the matched cases on the screen
     const result = findMatchedCases(this.value, cases);
-    // const html = result.map(caseInst => {
-    //     const regex = new RegExp(this.value, 'gi');
-    //     const caseName = caseInst.name.replace(regex, `<span class="hl">${this.value}</span>`);
-    //     const caseCitation = caseInst.citation.replace(regex, `<span class="hl">${this.value}</span>`);
-    //     return `
-    //     <li> 
-    //     <span class="name">${caseName}, ${caseCitation}</span>
-    //     </li>
-    //     `;
-    // }).join('')
-    // suggestions.innerHTML = html;
+    suggestions.style.opacity = '1';
 }
 
 search.addEventListener('keyup', displayMatchedCases);
