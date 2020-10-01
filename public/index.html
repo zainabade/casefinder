@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <title>Add a Case</title>
+</head>
+<body>
+    <article>
+        <section class="search-case">
+            <input type="text" placeholder="search for a case" id="search">
+            <ul id="results" class="row">
+            </ul>
+        </section>
+        <section class="add-case">
+            <p class="title">Add a new case</p>
+            <form class="case-info">
+                <input type="text" placeholder="case name" id="case-name">
+                <input type="text" placeholder="case citation" id="case-citation">
+            </form>
+            <p id="validate-message">Please fill in both fields</p>
+            <button type="submit" id="submit" hidden></button>
+            <label for="submit" id="add-case">add</label>
+            <div id="case-success">case citation successfully added</div>
+        </section>
+        <section class="recently-added">
+            <p class="title">Recently added cases</p>
+            <div class="case-contain">
+            </div>
+        </section>
+    </article>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
